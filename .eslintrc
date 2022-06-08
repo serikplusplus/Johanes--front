@@ -3,12 +3,29 @@
 		"browser": true,
 		"commonjs": true,
 		"es6": true,
-		"node": true
+		"node": true,
+		"es2020": true
 	},
-	"extends": ["airbnb/base", "prettier"],
+	"extends": [
+		"airbnb",
+		"prettier"
+
+		//Рекомендуемые параметры prettier не с .prettierrc
+		// "plugin:prettier/recommended"
+	],
 	"plugins": ["prettier"],
+	"parserOptions": {
+		"ecmaVersion": 12,
+		"sourceType": "module"
+	},
 	"rules": {
-		"semi": "off",
+		"quotes": [
+			"error",
+			"single",
+			{
+				"avoidEscape": true
+			}
+		],
 		"no-plusplus": "off",
 		"no-tabs": "off",
 		"arrow-body-style": "warn",
@@ -16,6 +33,7 @@
 		"prefer-destructuring": "warn",
 		"indent": [2, "tab"],
 		"no-param-reassign": "warn",
-		"linebreak-style": "off"
+		"linebreak-style": "off",
+		"block-scoped-var": ["error"]
 	}
 }

@@ -1,0 +1,18 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-rational-order",
+    "stylelint-prettier/recommended"
+  ],
+  "plugins": ["stylelint-scss"],
+  "rules": {
+    "order/properties-order": [],
+    "declaration-empty-line-before": null,
+    "plugin/rational-order": [
+      true,
+      {
+        "empty-line-between-groups": false
+      }
+    ]
+  }
+}

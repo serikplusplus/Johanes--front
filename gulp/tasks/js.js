@@ -1,10 +1,4 @@
-import webpack from 'webpack-stream' //sass modul
-import gulpSass from 'gulp-sass' // gulp sass
-import rename from 'gulp-rename' // переименование файлов
-import cleanCss from 'gulp-clean-css' // сжатие css
-import webpcss from 'gulp-webpcss' // поддержка webp внутри css
-import autoprefixer from 'gulp-autoprefixer' //автопрефиксер
-import groupCssMediaQueries from 'gulp-group-css-media-queries' // групировка медиа запросов
+import webpack from 'webpack-stream'
 
 export const js = () => {
 	return (
@@ -16,8 +10,8 @@ export const js = () => {
 					app.plugins.notify.onError({
 						title: 'JS',
 						message: 'Error: <%= error.message %>',
-					})
-				)
+					}),
+				),
 			)
 			// сжатый файл в dist
 			.pipe(
@@ -51,7 +45,7 @@ export const js = () => {
 							},
 						],
 					},
-				})
+				}),
 			)
 			// сжатый файл в dist
 			.pipe(app.gulp.dest(app.path.build.js))
