@@ -35,6 +35,7 @@
     "indent": [2, "tab"],
     "no-param-reassign": "warn",
     "linebreak-style": "off",
-    "block-scoped-var": ["error"]
+    "block-scoped-var": ["error"],
+    "one-var": "off"
   }
 }
