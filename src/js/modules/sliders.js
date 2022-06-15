@@ -9,6 +9,7 @@ export default function sliders() {
 			disableOnInteraction: false,
 		},
 	})
+
 	const indexOurClients = new Swiper('.our-clients__slider', {
 		loop: true,
 		speed: 5000,
