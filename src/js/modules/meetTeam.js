@@ -1,6 +1,6 @@
 export default function meetTeam() {
 	const persons = document.querySelectorAll('.meet-team__person '),
-		slider = document.querySelector('.meet-team__slider'),
+		close = document.querySelector('.meet-team__close-btn'),
 		slides = document.querySelectorAll('.meet-team__slide'),
 		nextSlide = document.querySelector('.meet-team__next-slide'),
 		wrapper = document.querySelector('.meet-team__wrapper')
@@ -9,6 +9,9 @@ export default function meetTeam() {
 		defaults: { duration: 0.75, ease: 'Power3.easeOut' },
 	})
 	const tl2 = gsap.timeline({
+		defaults: { duration: 0.75, ease: 'Power3.easeOut' },
+	})
+	const tl3 = gsap.timeline({
 		defaults: { duration: 0.75, ease: 'Power3.easeOut' },
 	})
 
@@ -63,15 +66,10 @@ export default function meetTeam() {
 			swipeNextSlideBtn()
 
 			persons.forEach(pers => {
-				tl.fromTo(pers, { y: 0 }, { y: 20, uration: 0.3 }, '<')
-				tl.to(
+				tl.fromTo(
 					pers,
-					{
-						opacity: 0,
-						duration: 0.3,
-						pointerEvents: 'none',
-					},
-					'<40%',
+					{ y: 0, opacity: 1 },
+					{ y: 20, opacity: 0, pointerEvents: 'none', duration: 0.3 },
 				)
 			})
 
@@ -81,6 +79,20 @@ export default function meetTeam() {
 					transform: 'translateX(-100%)',
 				},
 				'<60%',
+			)
+		})
+	})
+
+	close.addEventListener('click', () => {
+		tl3.to(wrapper, {
+			transform: 'translateX(0%)',
+		})
+
+		persons.forEach(pers => {
+			tl3.fromTo(
+				pers,
+				{ y: 20, opacity: 0 },
+				{ y: 0, opacity: 1, pointerEvents: 'auto', duration: 0.3 },
 			)
 		})
 	})
