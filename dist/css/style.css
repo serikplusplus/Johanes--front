@@ -823,7 +823,6 @@ button {
 }
 .how-work__slider {
   max-width: 635px;
-  padding-top: 38px;
   padding-bottom: 30px;
 }
 .how-work__slide {
@@ -1665,6 +1664,110 @@ button {
 .get-quote__form-info p a {
   color: #f24c4c;
   text-decoration: underline;
+}
+.get-quote__form-drag {
+  position: relative;
+  padding: 46px;
+  border: 2px dashed #f24c4c;
+  border-radius: 7px;
+}
+.get-quote__form-drag input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+}
+.get-quote__form-drag p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #000;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 125.5%;
+}
+.get-quote__form-drag p svg {
+  margin-bottom: 13px;
+}
+
+.dropdawn__select-btn,
+.dropdawn li {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.dropdawn__select-btn {
+  margin-top: 12px;
+  margin-bottom: 14px;
+  padding: 12px 21px;
+  color: #000;
+  font-weight: 400;
+  border: 1px solid #d8d8d8;
+  border-radius: 4px;
+}
+.dropdawn__arrow {
+  transition: transform 0.3s linear;
+}
+.dropdawn__content {
+  position: absolute;
+  z-index: 2;
+  display: none;
+  padding: 20px;
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+.dropdawn.active .dropdawn__content {
+  display: block;
+}
+.dropdawn__search {
+  position: relative;
+}
+.dropdawn__search input {
+  width: 100%;
+  padding: 10px 20px 10px 43px;
+  font-size: 16px;
+  border: 1px solid #b3b3b3;
+  border-radius: 5px;
+  outline: none;
+}
+.dropdawn__search input:focus {
+  padding-left: 42px;
+  border: 2px solid #4285f4;
+}
+.dropdawn__search input::placeholder {
+  color: #bfbfbf;
+}
+.dropdawn__content .dropdawn__options {
+  max-height: 250px;
+  margin-top: 10px;
+  padding-right: 7px;
+  overflow-y: auto;
+}
+.dropdawn__options::-webkit-scrollbar {
+  width: 7px;
+}
+.dropdawn__options::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 25px;
+}
+.dropdawn__options::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 25px;
+}
+.dropdawn__options::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+}
+.dropdawn__options li {
+  padding: 15px 13px;
+  font-size: 16px;
+}
+.dropdawn__options li:hover,
+.dropdawn li.selected {
+  background: #f2f2f2;
+  border-radius: 5px;
 }
 
 .breadcrumbs {

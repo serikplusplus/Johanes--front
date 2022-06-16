@@ -47,41 +47,94 @@
 			<div class="get-quote__form-section">
 				<h3 class="get-quote__form-title">The translation</h3>
 				<label class="get-quote__form-label">
-					Name of organisation
+					Translate from:
+					<div class="get-quote__form-dropdawn dropdawn">
+						<div class="dropdawn__select-btn">
+							<span>Select Country</span>
+							<i class="dropdawn__arrow"></i>
+						</div>
+						<div class="dropdawn__content">
+							<div class="dropdawn__search">
+								<i class="uil uil-search"></i>
+								<input
+									spellcheck="false"
+									type="text"
+									placeholder="Search"
+								/>
+							</div>
+							<ul class="dropdawn__options"></ul>
+						</div>
+					</div>
+				</label>
+				<label class="get-quote__form-label">
+					Translate to:
 					<input
 						type="text"
 						name=""
 						id=""
 						class="get-quote__form-input"
-					/> </label
-				><label class="get-quote__form-label">
-					First Name
+					/>
+				</label>
+				<label class="get-quote__form-label">
+					Translatable source file available?
+
+					<div class="get-quote__form-dropdawn dropdawn">
+						<div class="dropdawn__select-btn">
+							<span>Select Country</span>
+							<i class="dropdawn__arrow"></i>
+						</div>
+						<div class="dropdawn__content">
+							<div class="dropdawn__search">
+								<i class="uil uil-search"></i>
+								<input
+									spellcheck="false"
+									type="text"
+									placeholder="Search"
+								/>
+							</div>
+							<ul class="dropdawn__options">
+								<li
+									onclick="updateName(this)"
+									class="${isSelected}"
+								>
+									Yes
+								</li>
+								<li
+									onclick="updateName(this)"
+									class="${isSelected}"
+								>
+									No
+								</li>
+							</ul>
+						</div>
+					</div>
+				</label>
+				<div class="get-quote__form-drag">
 					<input
-						type="text"
+						type="file"
+						multiple
 						name=""
 						id=""
-						class="get-quote__form-input" /></label
-				><label class="get-quote__form-label">
-					Last Name<input
-						type="text"
-						name=""
-						id=""
-						class="get-quote__form-input" /></label
-				><label class="get-quote__form-label">
-					Email Address
-					<input
-						type="text"
-						name=""
-						id=""
-						class="get-quote__form-input" /></label
-				><label class="get-quote__form-label">
-					Phone Number
-					<input
-						type="text"
-						name=""
-						id=""
-						class="get-quote__form-input"
-				/></label>
+					/>
+					<p>
+						<svg
+							width="30"
+							height="28"
+							viewBox="0 0 30 28"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								d="M1.66699 20.6667L2.49499 23.98C2.6392 24.5569 2.97209 25.0691 3.44077 25.4351C3.90944 25.8011 4.487 25.9999 5.08166 26H24.919C25.5136 25.9999 26.0912 25.8011 26.5599 25.4351C27.0286 25.0691 27.3615 24.5569 27.5057 23.98L28.3337 20.6667M15.0003 18V2V18ZM15.0003 18L9.66699 12.6667L15.0003 18ZM15.0003 18L20.3337 12.6667L15.0003 18Z"
+								stroke="#101F42"
+								stroke-width="3.33333"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							/>
+						</svg>
+						Drag file(s) here or click to upload
+					</p>
+				</div>
 			</div>
 			<div class="get-quote__form-section">
 				<h3 class="get-quote__form-title">Extra information</h3>
@@ -115,3 +168,95 @@
 		</form>
 	</div>
 </section>
+<script>
+	const wrapper = document.querySelector('.dropdawn'),
+		selectBtn = wrapper.querySelector('.dropdawn__select-btn'),
+		searchInp = wrapper.querySelector('input'),
+		options = wrapper.querySelector('.dropdawn__options')
+
+	let countries = [
+		'Afghanistan',
+		'Algeria',
+		'Argentina',
+		'Australia',
+		'Bangladesh',
+		'Belgium',
+		'Bhutan',
+		'Brazil',
+		'Canada',
+		'China',
+		'Denmark',
+		'Ethiopia',
+		'Finland',
+		'France',
+		'Germany',
+		'Hungary',
+		'Iceland',
+		'India',
+		'Indonesia',
+		'Iran',
+		'Italy',
+		'Japan',
+		'Malaysia',
+		'Maldives',
+		'Mexico',
+		'Morocco',
+		'Nepal',
+		'Netherlands',
+		'Nigeria',
+		'Norway',
+		'Pakistan',
+		'Peru',
+		'Russia',
+		'Romania',
+		'South Africa',
+		'Spain',
+		'Sri Lanka',
+		'Sweden',
+		'Switzerland',
+		'Thailand',
+		'Turkey',
+		'Uganda',
+		'Ukraine',
+		'United States',
+		'United Kingdom',
+		'Vietnam',
+	]
+
+	function addCountry(selectedCountry) {
+		options.innerHTML = ''
+		countries.forEach(country => {
+			let isSelected = country == selectedCountry ? 'selected' : ''
+			let li = `<li onclick="updateName(this)" class="${isSelected}">${country}</li>`
+			options.insertAdjacentHTML('beforeend', li)
+		})
+	}
+	addCountry()
+
+	function updateName(selectedLi) {
+		searchInp.value = ''
+		addCountry(selectedLi.innerText)
+		wrapper.classList.remove('active')
+		selectBtn.firstElementChild.innerText = selectedLi.innerText
+	}
+
+	searchInp.addEventListener('keyup', () => {
+		let arr = []
+		let searchWord = searchInp.value.toLowerCase()
+		arr = countries
+			.filter(data => {
+				return data.toLowerCase().startsWith(searchWord)
+			})
+			.map(data => {
+				let isSelected =
+					data == selectBtn.firstElementChild.innerText ? 'selected' : ''
+				return `<li onclick="updateName(this)" class="${isSelected}">${data}</li>`
+			})
+			.join('')
+		options.innerHTML = arr
+			? arr
+			: `<p style="margin-top: 10px;">Oops! Country not found</p>`
+	})
+
+	selectBtn.addEventListener('click', () => wrapper.classList.toggle('active'))
+</script>
