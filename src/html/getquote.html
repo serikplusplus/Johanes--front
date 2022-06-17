@@ -48,9 +48,9 @@
 				<h3 class="get-quote__form-title">The translation</h3>
 				<label class="get-quote__form-label">
 					Translate from:
-					<div class="get-quote__form-dropdawn dropdawn">
+					<div class="get-quote__form-dropdawn dropdawn dropdawn-langfrom">
 						<div class="dropdawn__select-btn">
-							<span>Select Country</span>
+							<span>Select Lang</span>
 							<i class="dropdawn__arrow"></i>
 						</div>
 						<div class="dropdawn__content">
@@ -68,20 +68,35 @@
 				</label>
 				<label class="get-quote__form-label">
 					Translate to:
-					<input
-						type="text"
-						name=""
-						id=""
-						class="get-quote__form-input"
-					/>
-				</label>
-				<label class="get-quote__form-label">
-					Translatable source file available?
-
-					<div class="get-quote__form-dropdawn dropdawn">
-						<div class="dropdawn__select-btn">
-							<span>Select Country</span>
-							<i class="dropdawn__arrow"></i>
+					<div class="get-quote__form-dropdawn dropdawn dropdawn--multiple">
+						<div class="dropdawn__select-btn dropdawn--multiple__select-btn">
+							<span
+								><svg
+									width="16"
+									height="16"
+									viewBox="0 0 16 16"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										d="M5 5L8 8L5 11"
+										stroke="white"
+										stroke-linecap="round"
+									/>
+									<path
+										d="M11.375 11L8.375 8L11.375 5"
+										stroke="white"
+										stroke-linecap="round"
+									/>
+									<circle
+										cx="8"
+										cy="8"
+										r="7.5"
+										stroke="white"
+									/>
+								</svg>
+								German</span
+							>
 						</div>
 						<div class="dropdawn__content">
 							<div class="dropdawn__search">
@@ -92,20 +107,20 @@
 									placeholder="Search"
 								/>
 							</div>
-							<ul class="dropdawn__options">
-								<li
-									onclick="updateName(this)"
-									class="${isSelected}"
-								>
-									Yes
-								</li>
-								<li
-									onclick="updateName(this)"
-									class="${isSelected}"
-								>
-									No
-								</li>
-							</ul>
+							<ul class="dropdawn__options"></ul>
+						</div>
+					</div>
+				</label>
+				<label class="get-quote__form-label">
+					Translatable source file available?
+
+					<div class="get-quote__form-dropdawn dropdawn dropdawn-file">
+						<div class="dropdawn__select-btn">
+							<span>Select Country</span>
+							<i class="dropdawn__arrow"></i>
+						</div>
+						<div class="dropdawn__content">
+							<ul class="dropdawn__options"></ul>
 						</div>
 					</div>
 				</label>
@@ -168,95 +183,3 @@
 		</form>
 	</div>
 </section>
-<script>
-	const wrapper = document.querySelector('.dropdawn'),
-		selectBtn = wrapper.querySelector('.dropdawn__select-btn'),
-		searchInp = wrapper.querySelector('input'),
-		options = wrapper.querySelector('.dropdawn__options')
-
-	let countries = [
-		'Afghanistan',
-		'Algeria',
-		'Argentina',
-		'Australia',
-		'Bangladesh',
-		'Belgium',
-		'Bhutan',
-		'Brazil',
-		'Canada',
-		'China',
-		'Denmark',
-		'Ethiopia',
-		'Finland',
-		'France',
-		'Germany',
-		'Hungary',
-		'Iceland',
-		'India',
-		'Indonesia',
-		'Iran',
-		'Italy',
-		'Japan',
-		'Malaysia',
-		'Maldives',
-		'Mexico',
-		'Morocco',
-		'Nepal',
-		'Netherlands',
-		'Nigeria',
-		'Norway',
-		'Pakistan',
-		'Peru',
-		'Russia',
-		'Romania',
-		'South Africa',
-		'Spain',
-		'Sri Lanka',
-		'Sweden',
-		'Switzerland',
-		'Thailand',
-		'Turkey',
-		'Uganda',
-		'Ukraine',
-		'United States',
-		'United Kingdom',
-		'Vietnam',
-	]
-
-	function addCountry(selectedCountry) {
-		options.innerHTML = ''
-		countries.forEach(country => {
-			let isSelected = country == selectedCountry ? 'selected' : ''
-			let li = `<li onclick="updateName(this)" class="${isSelected}">${country}</li>`
-			options.insertAdjacentHTML('beforeend', li)
-		})
-	}
-	addCountry()
-
-	function updateName(selectedLi) {
-		searchInp.value = ''
-		addCountry(selectedLi.innerText)
-		wrapper.classList.remove('active')
-		selectBtn.firstElementChild.innerText = selectedLi.innerText
-	}
-
-	searchInp.addEventListener('keyup', () => {
-		let arr = []
-		let searchWord = searchInp.value.toLowerCase()
-		arr = countries
-			.filter(data => {
-				return data.toLowerCase().startsWith(searchWord)
-			})
-			.map(data => {
-				let isSelected =
-					data == selectBtn.firstElementChild.innerText ? 'selected' : ''
-				return `<li onclick="updateName(this)" class="${isSelected}">${data}</li>`
-			})
-			.join('')
-		options.innerHTML = arr
-			? arr
-			: `<p style="margin-top: 10px;">Oops! Country not found</p>`
-	})
-
-	selectBtn.addEventListener('click', () => wrapper.classList.toggle('active'))
-</script>
