@@ -1985,6 +1985,7 @@ button {
   opacity: 1;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 .swiper-horizontal > .swiper-pagination-bullets,
 .swiper-pagination-bullets.swiper-pagination-horizontal,
 .swiper-pagination-custom,
