@@ -1543,6 +1543,14 @@ button {
     padding-bottom: 0;
   }
 }
+<<<<<<< HEAD
+=======
+@media screen and (max-width: 776px) {
+  .meet-team {
+    padding-bottom: 89px;
+  }
+}
+>>>>>>> e93dcfd (about-us adaptive)
 .meet-team::after {
   position: absolute;
   top: 370px;

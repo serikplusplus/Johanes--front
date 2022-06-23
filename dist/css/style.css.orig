@@ -1544,13 +1544,13 @@ button {
   }
 }
 <<<<<<< HEAD
-=======
 @media screen and (max-width: 776px) {
   .meet-team {
     padding-bottom: 89px;
   }
 }
->>>>>>> e93dcfd (about-us adaptive)
+=======
+>>>>>>> 37b73abf14a46019dbe76c1afd0f82d935bd6d68
 .meet-team::after {
   position: absolute;
   top: 370px;
@@ -2720,4 +2720,3 @@ button {
   justify-content: center;
   margin-top: 55px;
 }
-/*# sourceMappingURL=style.min.css.map */
