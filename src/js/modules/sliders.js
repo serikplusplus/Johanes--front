@@ -37,6 +37,7 @@ export default function sliders() {
 		slidesPerView: 1,
 		pagination: {
 			el: '.reviews-pagination',
+			clickable: true,
 		},
 		speed: 500,
 		autoplay: {
@@ -58,10 +59,20 @@ export default function sliders() {
 
 	const aboutStories = new Swiper('.stories__slider', {
 		loop: true,
-		slidesPerView: 3,
+		slidesPerView: 1,
 		spaceBetween: 20,
 		pagination: {
 			el: '.stories-pagination',
+			clickable: true,
+		},
+		breakpoints: {
+			630: {
+				slidesPerView: 2,
+				centeredSlides: true,
+			},
+			991: {
+				slidesPerView: 3,
+			},
 		},
 	})
 }
