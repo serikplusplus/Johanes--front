@@ -180,6 +180,10 @@ button {
   @media screen and (max-width: 1230px) {
     max-width: 248px;
   }
+
+  @media screen and (max-width: 490px) {
+    max-width: 200px;
+  }
 }
 
 .fullnav {
@@ -292,14 +296,17 @@ button {
 
   &.show {
     left: 0;
-    height: calc(100vh - 106px);
   }
 
   min-height: calc(100vh - 100px);
   padding: 80px 20px 20px;
-  overflow-y: auto;
   text-align: right;
   background: #101f42;
+
+  @media screen and (max-width: 490px) {
+    top: 90px;
+    min-height: calc(100vh - 90px);
+  }
 }
 
 .main-nav {
@@ -561,25 +568,42 @@ button {
 .statistic {
   position: relative;
   z-index: 2;
-  margin-top: -65px;
+  margin-top: -125px;
   color: #101f42;
+
+  @media screen and (max-width: 1210px) {
+    margin-top: -31px;
+  }
 
   &__wrapper {
     padding: 57px 0;
     background: #fff;
     border-radius: 7px;
     box-shadow: 0 0 25px rgb(0 0 0 / 10%);
+
+    @media screen and (max-width: 991px) {
+      max-width: 577px;
+      margin: 0 auto;
+    }
   }
 
   &__list {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 37px 0;
+    justify-content: center;
   }
 
   &__elem {
+    flex-basis: 186px;
+
+    flex-grow: 1;
     padding: 5px 27px;
     text-align: center;
-    border-right: 1px solid #efefef;
+
+    &:not(:last-child) {
+      border-right: 1px solid #efefef;
+    }
   }
 
   &__stat {
@@ -633,6 +657,10 @@ button {
   padding-top: 155px;
   text-align: center;
 
+  @media screen and (max-width: 991px) {
+    padding-top: 68px;
+  }
+
   &__title {
     margin: 0;
     margin-bottom: 85px;
@@ -672,16 +700,39 @@ button {
   padding-top: 87px;
   padding-bottom: 126px;
 
+  @media screen and (max-width: 991px) {
+    padding: 67px 15px 0;
+  }
+
   &__wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-right: 100px;
     text-align: right;
+
+    @media screen and (max-width: 991px) {
+      justify-content: center;
+
+      padding-right: 0;
+      text-align: center;
+    }
   }
 
   &__img {
     max-width: 518px;
+
+    @media screen and (max-width: 991px) {
+      display: none;
+    }
+  }
+
+  &__content {
+    padding-left: 40px;
+
+    @media screen and (max-width: 991px) {
+      padding-left: 0;
+    }
   }
 
   &__title {
@@ -694,6 +745,10 @@ button {
     line-height: 37px;
     letter-spacing: 2.2974px;
     text-transform: uppercase;
+
+    @media screen and (max-width: 490px) {
+      font-size: 20px;
+    }
   }
 
   &__descr {
@@ -704,6 +759,11 @@ button {
     line-height: 25px;
     letter-spacing: 1.59px;
     text-transform: uppercase;
+
+    @media screen and (max-width: 490px) {
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
   }
 }
 
@@ -712,6 +772,10 @@ button {
   color: #fff;
   background-color: $secondary-color;
   border-radius: 0 0 500px 0 / 0 0 300px 0;
+
+  @media screen and (max-width: 991px) {
+    display: none;
+  }
 
   &__title {
     max-width: 988px;
@@ -754,6 +818,10 @@ button {
 .how-work {
   padding-top: 150px;
 
+  @media screen and (max-width: 991px) {
+    padding-top: 61px;
+  }
+
   &__img {
     max-width: 805px;
     margin: 0;
@@ -764,15 +832,27 @@ button {
       height: 100%;
       border-radius: 0 181px 0 0;
     }
+
+    @media screen and (max-width: 991px) {
+      display: none;
+    }
   }
 
   &__slider {
     max-width: 635px;
     padding-bottom: 30px;
+
+    @media screen and (max-width: 1230px) {
+      max-width: 600px;
+    }
   }
 
   &__slide {
     padding: 0 90px;
+
+    @media screen and (max-width: 490px) {
+      padding: 0 30px;
+    }
   }
 
   &__slider-wrapper {
@@ -804,6 +884,10 @@ button {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px 18px;
+
+    @media screen and (max-width: 991px) {
+      display: none;
+    }
   }
 
   &__item {
@@ -832,6 +916,10 @@ button {
     gap: 12px;
     align-items: center;
     justify-content: flex-end;
+
+    @media screen and (max-width: 991px) {
+      justify-content: center;
+    }
   }
 
   &__btns {
@@ -839,6 +927,10 @@ button {
     gap: 20px;
     justify-content: center;
     margin-bottom: 29px;
+
+    @media screen and (max-width: 490px) {
+      gap: 15px;
+    }
   }
 
   &__title {
@@ -861,6 +953,22 @@ button {
     max-width: 635px;
     margin-top: auto;
     border-radius: 0 0 0 75px;
+
+    @media screen and (max-width: 1230px) {
+      max-width: 600px;
+    }
+
+    @media screen and (max-width: 991px) {
+      padding: 30px;
+      color: #101f42;
+      text-align: center;
+      background-color: transparent;
+
+      &:hover {
+        color: $secondary-color;
+        border-color: transparent;
+      }
+    }
   }
 }
 
@@ -869,9 +977,32 @@ button {
   padding-top: 150px;
   color: #fff;
 
+  @media screen and (max-width: 991px) {
+    padding-top: 69px;
+  }
+
   &__left {
-    padding: 100px 74px 50px 100px;
+    flex-basis: 50%;
+    padding: 100px 74px 100px 100px;
     background: #101f42;
+
+    @media screen and (max-width: 1230px) {
+      padding: 60px 69px 100px 60px;
+    }
+    @media screen and (max-width: 776px) {
+      display: flex;
+      flex-basis: 100%;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px 40px 100px;
+    }
+  }
+
+  &__right {
+    flex-basis: 50%;
+    @media screen and (max-width: 776px) {
+      display: none;
+    }
   }
 
   &__title {
@@ -881,6 +1012,21 @@ button {
     font-size: 50px;
     line-height: 75px;
     letter-spacing: 0.015em;
+
+    @media screen and (max-width: 1230px) {
+      margin-bottom: 75px;
+      font-size: 35px;
+    }
+
+    @media screen and (max-width: 991px) {
+      margin-bottom: 60px;
+      font-size: 29px;
+    }
+
+    @media screen and (max-width: 776px) {
+      font-size: 25px;
+      line-height: 38px;
+    }
   }
 
   &__list {
@@ -892,11 +1038,25 @@ button {
     line-height: 28px;
     letter-spacing: 1.3px;
     text-transform: uppercase;
+
+    @media screen and (max-width: 1230px) {
+      gap: 20px 20px;
+      font-size: 16px;
+      letter-spacing: 1px;
+    }
+    @media screen and (max-width: 991px) {
+      font-size: 12px;
+      line-height: 16px;
+    }
+    @media screen and (max-width: 776px) {
+      font-size: 10px;
+    }
   }
 
   &__item {
     position: relative;
     padding-left: 50px;
+    white-space: nowrap;
 
     &::after {
       position: absolute;
@@ -907,20 +1067,40 @@ button {
       background: url("@img/speciality-list.svg");
       transform: translateY(-50%);
       content: "";
+
+      @media screen and (max-width: 991px) {
+        width: 15px;
+        height: 15px;
+        background-size: contain;
+      }
+    }
+
+    @media screen and (max-width: 991px) {
+      padding-left: 30px;
+    }
+
+    @media screen and (max-width: 776px) {
+      white-space: normal;
     }
   }
 
   &__img {
     height: 100%;
+    object-position: left top;
   }
 }
 
 .reviews {
   padding-top: 150px;
 
+  @media screen and (max-width: 991px) {
+    padding-top: 69px;
+  }
+
   &__slide {
     max-width: 967px;
     margin: 0 auto;
+    padding: 0 15px;
     text-align: center;
   }
 
@@ -957,6 +1137,10 @@ button {
       border: 8px solid $secondary-color;
       border-radius: 50%;
     }
+
+    @media screen and (max-width: 991px) {
+      max-width: 151px;
+    }
   }
 
   &__awesom {
@@ -965,6 +1149,11 @@ button {
     font-weight: 800;
     font-size: 26px;
     line-height: 39px;
+
+    @media screen and (max-width: 991px) {
+      font-size: 21px;
+      line-height: 32px;
+    }
   }
 
   &__text {
@@ -975,6 +1164,12 @@ button {
     font-size: 20px;
     line-height: 30px;
     text-align: left;
+
+    @media screen and (max-width: 991px) {
+      padding: 0 50px;
+      font-size: 16px;
+      line-height: 25px;
+    }
 
     &::after {
       position: absolute;
@@ -1007,6 +1202,12 @@ button {
     font-size: 20px;
     line-height: 30px;
     text-align: left;
+
+    @media screen and (max-width: 991px) {
+      padding: 0 50px;
+      font-size: 16px;
+      line-height: 25px;
+    }
   }
 }
 
@@ -1015,39 +1216,46 @@ button {
   margin-top: 150px;
   overflow: hidden;
   color: #fff;
+  background: url("@img/footer-bg.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
 
-  &::after {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    z-index: -1;
-    width: 1978px;
-    height: 866px;
-    background: #ec9b3b;
-    border-radius: 50% 50% 0 0;
-    transform: translateX(-50%);
-    content: "";
+  @media screen and (max-width: 991px) {
+    background: url("@img/footer-bg-medium.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
   }
 
   &__wrapper {
     display: flex;
+    flex-wrap: wrap;
+    gap: 39px;
+
+    justify-content: center;
     padding: 171px 50px 60px;
+
+    @media screen and (max-width: 991px) {
+      padding: 171px 170px 60px;
+    }
   }
 
   &__col {
-    flex-shrink: 1;
+    flex-basis: 200px;
+    flex-grow: 1;
 
-    &--area {
-      padding-left: 39px;
-    }
+    // &--area {
+    //   padding-left: 39px;
+    // }
 
-    &--lang {
-      padding-left: 96px;
-    }
+    // &--lang {
+    //   padding-left: 96px;
+    // }
 
-    &--loc {
-      padding-left: 74px;
-    }
+    // &--loc {
+    //   padding-left: 74px;
+    // }
   }
 
   &__col-title {
@@ -1082,7 +1290,8 @@ button {
   }
 
   &__social {
-    padding-left: 167px;
+    flex-basis: 200px;
+    flex-grow: 1;
   }
 
   &__social-list {
