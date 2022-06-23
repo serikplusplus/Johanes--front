@@ -2,11 +2,16 @@ export default function sliders() {
 	const indexMain = new Swiper('.main-section__slider', {
 		loop: true,
 		spaceBetween: 30,
-		slidesPerView: 1.4,
+		slidesPerView: 1,
 		speed: 500,
 		autoplay: {
 			delay: 2000,
 			disableOnInteraction: false,
+		},
+		breakpoints: {
+			1335: {
+				slidesPerView: 1.4,
+			},
 		},
 	})
 
