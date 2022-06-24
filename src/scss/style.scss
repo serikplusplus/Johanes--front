@@ -1313,9 +1313,6 @@ button {
   text-align: center;
 
   @media screen and (max-width: 991px) {
-    padding-bottom: 0;
-  }
-  @media screen and (max-width: 776px) {
     padding-bottom: 89px;
   }
 
@@ -1345,6 +1342,11 @@ button {
 
   &__wrapper {
     display: flex;
+    transition: transform 0.5s linear;
+
+    &.open {
+      transform: translateX(-100%);
+    }
   }
 
   &__title {
@@ -1431,7 +1433,8 @@ button {
     &-left {
       display: flex;
       flex-direction: column;
-      min-width: 400px;
+
+      // min-width: 400px;
       padding-right: 20px;
     }
 

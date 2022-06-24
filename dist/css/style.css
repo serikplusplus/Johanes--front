@@ -1540,11 +1540,6 @@ button {
 }
 @media screen and (max-width: 991px) {
   .meet-team {
-    padding-bottom: 0;
-  }
-}
-@media screen and (max-width: 776px) {
-  .meet-team {
     padding-bottom: 89px;
   }
 }
@@ -1576,6 +1571,10 @@ button {
 }
 .meet-team__wrapper {
   display: flex;
+  transition: transform 0.5s linear;
+}
+.meet-team__wrapper.open {
+  transform: translateX(-100%);
 }
 .meet-team__title {
   margin: 0;
@@ -1663,7 +1662,6 @@ button {
 .meet-team__slide-left {
   display: flex;
   flex-direction: column;
-  min-width: 400px;
   padding-right: 20px;
 }
 .meet-team__slide-photo {

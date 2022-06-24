@@ -73,21 +73,25 @@ export default function meetTeam() {
 				)
 			})
 
-			tl.to(
-				wrapper,
-				{
-					transform: 'translateX(-100%)',
+			tl.call(
+				() => {
+					wrapper.classList.add('open')
 				},
-				'<60%',
+				null,
+				'>',
 			)
 		})
 	})
 
 	close.addEventListener('click', () => {
-		tl3.to(wrapper, {
-			transform: 'translateX(0%)',
-		})
-
+		tl3.call(
+			() => {
+				wrapper.classList.remove('open')
+			},
+			null,
+			'>',
+		)
+		tl3.to(null, { delay: 0.5 }, '<')
 		persons.forEach(pers => {
 			tl3.fromTo(
 				pers,
