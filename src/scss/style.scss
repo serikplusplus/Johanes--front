@@ -443,6 +443,14 @@ button {
     background-repeat: no-repeat;
     background-position: center bottom;
     background-size: cover;
+
+    @media screen and (max-width: 991px) {
+      min-height: 470px;
+      background: url("@img/main-section-red-bg-medium.png");
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      background-size: cover;
+    }
   }
 
   &--sub-page {
@@ -450,6 +458,14 @@ button {
     background-repeat: no-repeat;
     background-position: center bottom;
     background-size: cover;
+
+    @media screen and (max-width: 991px) {
+      min-height: 470px;
+      background: url("@img/main-section-yellow-bg-medium.png");
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      background-size: cover;
+    }
   }
 
   &--contact {
@@ -457,6 +473,14 @@ button {
     background-repeat: no-repeat;
     background-position: center bottom;
     background-size: cover;
+
+    @media screen and (max-width: 991px) {
+      min-height: 470px;
+      background: url("@img/main-section-blue-bg-medium.png");
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      background-size: cover;
+    }
   }
 
   &__wrapper {
@@ -464,6 +488,10 @@ button {
     padding-bottom: 81px;
     padding-left: 100px;
 
+    &--sub-page,
+    &--contact {
+      justify-content: flex-end;
+    }
     @media screen and (max-width: 991px) {
       justify-content: center;
       padding-left: 0;
@@ -481,19 +509,40 @@ button {
 
     &--sub-page {
       max-width: 650px;
-      margin-left: auto;
       padding-top: 65px;
-
-      padding-left: 0;
+      padding-right: 100px;
       color: #212121;
+
+      @media screen and (max-width: 1360px) {
+        max-width: 580px;
+        padding-right: 80px;
+      }
+      @media screen and (max-width: 1210px) {
+        max-width: 500px;
+        padding-top: 20px;
+        text-align: center;
+      }
+      @media screen and (max-width: 991px) {
+        padding: 20px 0 0;
+      }
     }
 
     &--contact {
       max-width: 650px;
-      margin-left: auto;
       padding-top: 123px;
+      padding-right: 100px;
 
-      padding-left: 0;
+      @media screen and (max-width: 1360px) {
+        max-width: 580px;
+        padding-right: 80px;
+      }
+      @media screen and (max-width: 1210px) {
+        max-width: 500px;
+        text-align: center;
+      }
+      @media screen and (max-width: 991px) {
+        padding: 65px 0 0;
+      }
     }
   }
 
@@ -1362,7 +1411,7 @@ button {
       font-size: 56px;
     }
     @media screen and (max-width: 776px) {
-      margin-bottom: 57px;
+      margin-bottom: 0;
       font-size: 30px;
       line-height: 45px;
     }
@@ -1402,8 +1451,8 @@ button {
     height: 100%;
     padding-top: 50px;
 
-    &-wrapper {
-      display: flex;
+    @media screen and (max-width: 776px) {
+      padding-top: 100px;
     }
   }
 
@@ -1413,6 +1462,9 @@ button {
     left: 0;
     padding: 15px;
     cursor: pointer;
+    @media screen and (max-width: 776px) {
+      top: 20px;
+    }
   }
 
   &__next-slide {
@@ -1422,24 +1474,76 @@ button {
     z-index: 10;
     max-width: 245px;
     transform: translate(50%, -50%);
+
+    @media screen and (max-width: 575px) {
+      top: 55%;
+    }
+
+    .meet-team__name,
+    .meet-team__position {
+      @media screen and (max-width: 575px) {
+        display: none;
+      }
+    }
   }
 
   &__slide {
     display: flex;
     align-items: center;
     min-width: 100%;
-    padding-right: 244px;
+    min-height: 600px;
+    padding-right: 210px;
+    padding-left: 15px;
+
+    @media screen and (max-width: 991px) {
+      flex-direction: column;
+      padding-right: 15px;
+    }
 
     &-left {
       display: flex;
       flex-direction: column;
-
-      // min-width: 400px;
+      min-width: 354px;
       padding-right: 20px;
+
+      @media screen and (max-width: 991px) {
+        padding-right: 0;
+        padding-bottom: 80px;
+      }
+      @media screen and (max-width: 776px) {
+        min-width: auto;
+        padding: 0 20px 80px;
+      }
     }
 
     &-photo {
       margin-bottom: 24px;
+
+      img {
+        width: 320px;
+        height: 320px;
+        border-radius: 50%;
+
+        @media screen and (max-width: 575px) {
+          width: 258px;
+          height: 258px;
+          border-radius: 50%;
+        }
+      }
+
+      &--elips {
+        img {
+          width: 295px;
+          height: 345px;
+          border-radius: 0 182.477px;
+
+          @media screen and (max-width: 575px) {
+            width: 258px;
+            height: 258px;
+            border-radius: 50%;
+          }
+        }
+      }
     }
 
     &-name {
@@ -1447,6 +1551,9 @@ button {
       font-weight: 600;
       font-size: 49.7664px;
       line-height: 75px;
+      @media screen and (max-width: 575px) {
+        padding-top: 80px;
+      }
     }
 
     &-position {
@@ -1471,6 +1578,22 @@ button {
     &--small {
       @media screen and (max-width: 776px) {
         min-width: 33.3%;
+      }
+    }
+  }
+
+  &__text {
+    padding: 0 51px;
+
+    &::after {
+      @media screen and (max-width: 776px) {
+        left: 10px;
+      }
+    }
+
+    &::before {
+      @media screen and (max-width: 776px) {
+        right: 10px;
       }
     }
   }
@@ -1977,24 +2100,36 @@ button {
   }
 }
 
-.sub-team {
+.sub-info {
   padding-top: 152px;
+  @media screen and (max-width: 991px) {
+    padding-top: 70px;
+  }
 
-  &__slide {
+  &__wrapper {
     display: flex;
-    padding-right: 100px;
-    padding-left: 40px;
+    padding: 0 15px;
+
+    @media screen and (max-width: 776px) {
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
+    }
   }
 
-  &__next-slide {
-    top: 35px;
-    text-align: center;
-    transform: translate(50%, 0);
+  &__left {
+    flex-grow: 1;
+    min-width: 380px;
   }
 
-  &__slide-right {
-    padding-right: 200px;
+  &__right {
+    flex-grow: 1;
+    max-width: 690px;
     padding-left: 79px;
+
+    @media screen and (max-width: 991px) {
+      padding-left: 0;
+    }
   }
 
   &__title {
@@ -2005,10 +2140,20 @@ button {
     font-size: 24px;
     line-height: 36px;
 
+    @media screen and (max-width: 776px) {
+      font-size: 18px;
+      line-height: 24px;
+    }
+
     &--main {
       font-weight: 700;
       font-size: 33px;
       line-height: 50px;
+
+      @media screen and (max-width: 776px) {
+        font-size: 22px;
+        line-height: 34px;
+      }
     }
   }
 
@@ -2017,6 +2162,11 @@ button {
     margin-bottom: 60px;
     font-size: 16px;
     line-height: 180%;
+
+    @media screen and (max-width: 776px) {
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
 
     &--red {
       color: $secondary-color;
@@ -2027,7 +2177,7 @@ button {
 
 .full-person {
   // width: 100%;
-  min-width: 370px;
+  // min-width: 370px;
   max-width: 381px;
   text-align: center;
 
@@ -2035,9 +2185,34 @@ button {
     margin: 0;
 
     img {
-      max-width: 244px;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+
+      @media screen and (max-width: 575px) {
+        width: 258px;
+        height: 258px;
+        border-radius: 50%;
+      }
+    }
+
+    &--elips {
+      img {
+        width: 295px;
+        height: 345px;
+        border-radius: 0 182.477px;
+
+        @media screen and (max-width: 575px) {
+          width: 258px;
+          height: 258px;
+          border-radius: 50%;
+        }
+      }
     }
     margin-bottom: 44px;
+    @media screen and (max-width: 991px) {
+      margin-bottom: 20px;
+    }
   }
 
   &__text {
@@ -2049,6 +2224,10 @@ button {
     font-size: 18px;
     line-height: 27px;
     text-align: center;
+
+    @media screen and (max-width: 991px) {
+      display: none;
+    }
 
     &::after {
       position: absolute;
@@ -2077,6 +2256,11 @@ button {
     font-weight: 600;
     font-size: 41.472px;
     line-height: 62px;
+
+    @media screen and (max-width: 991px) {
+      font-size: 32px;
+      line-height: 48px;
+    }
   }
 
   &__position {
@@ -2085,12 +2269,21 @@ button {
     font-weight: 700;
     font-size: 24.8832px;
     line-height: 37px;
+
+    @media screen and (max-width: 991px) {
+      font-size: 19px;
+      line-height: 29px;
+    }
   }
 }
 
 .get-quote {
   padding-top: 150px;
   text-align: center;
+
+  @media screen and (max-width: 991px) {
+    padding-top: 70px;
+  }
 
   &__title {
     position: relative;
@@ -2103,6 +2296,15 @@ button {
     font-size: 70px;
     line-height: 125.5%;
 
+    @media screen and (max-width: 991px) {
+      margin-bottom: 40px;
+      padding: 0;
+      font-size: 55px;
+    }
+    @media screen and (max-width: 460px) {
+      font-size: 40px;
+    }
+
     &::after {
       position: absolute;
       top: 0;
@@ -2111,6 +2313,9 @@ button {
       height: 33px;
       background: url("@img/left-quotes.svg");
       content: "";
+      @media screen and (max-width: 991px) {
+        display: none;
+      }
     }
 
     &::before {
@@ -2121,21 +2326,36 @@ button {
       height: 33px;
       background: url("@img/right-quotes.svg");
       content: "";
+      @media screen and (max-width: 991px) {
+        display: none;
+      }
     }
   }
 
   &__form {
     display: flex;
     gap: 20px;
+
+    @media screen and (max-width: 991px) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   &__form-section {
+    position: relative;
+    flex-basis: 400px;
     flex-grow: 1;
-    max-width: 400px;
     padding: 30px 30px 46px;
     background: #fff;
     border-radius: 20px;
     box-shadow: 0 4px 112px rgb(219 49 54 / 5%);
+
+    @media screen and (max-width: 991px) {
+      flex-basis: auto;
+      width: 100%;
+      max-width: 530px;
+    }
   }
 
   &__form-title {
@@ -2209,6 +2429,10 @@ button {
     }
   }
 
+  &__form-dropdawn {
+    position: relative;
+  }
+
   &__form-drag {
     position: relative;
     padding: 46px;
@@ -2243,13 +2467,37 @@ button {
 .contact-section {
   padding-top: 150px;
 
+  @media screen and (max-width: 991px) {
+    padding-top: 70px;
+  }
+
   &__wrapper {
     display: flex;
+    padding: 0 15px;
     padding-left: 60px;
+    @media screen and (max-width: 991px) {
+      padding-left: 50px;
+    }
+    @media screen and (max-width: 776px) {
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+      padding: 0 15px;
+    }
   }
 
   &__content {
     padding-left: 80px;
+    @media screen and (max-width: 776px) {
+      padding: 0;
+    }
+  }
+
+  &__title {
+    @media screen and (max-width: 991px) {
+      font-size: 25.5629px;
+      line-height: 38px;
+    }
   }
 
   &__subtitle {
@@ -2259,6 +2507,10 @@ button {
     font-weight: 500;
     font-size: 18px;
     line-height: 180%;
+
+    @media screen and (max-width: 991px) {
+      font-size: 14px;
+    }
   }
 
   &__address {
@@ -2266,6 +2518,10 @@ button {
     font-weight: 300;
     font-size: 18px;
     line-height: 190.5%;
+
+    @media screen and (max-width: 991px) {
+      font-size: 14px;
+    }
   }
 
   &__grup {
@@ -2283,20 +2539,42 @@ button {
     line-height: 30px;
 
     text-decoration-line: underline;
+
+    @media screen and (max-width: 991px) {
+      font-size: 15px;
+      line-height: 23px;
+    }
   }
 
   &__btn {
     padding: 16px 174px;
+
+    @media screen and (max-width: 991px) {
+      font-size: 12px;
+      line-height: 19px;
+    }
+    @media screen and (max-width: 776px) {
+      width: 100%;
+      padding: 16px 74px;
+      text-align: center;
+    }
   }
 }
 
 .contact-city {
   padding-top: 150px;
+  @media screen and (max-width: 991px) {
+    padding-top: 98px;
+  }
 
   &__list {
     display: flex;
     flex-direction: column;
     gap: 150px;
+
+    @media screen and (max-width: 1220px) {
+      gap: 70px;
+    }
   }
 
   &__elem {
@@ -2306,6 +2584,10 @@ button {
 
     img {
       border-radius: 0 320px;
+
+      @media screen and (max-width: 991px) {
+        border-radius: 0 224px;
+      }
     }
 
     &:nth-child(2n) {
@@ -2315,11 +2597,33 @@ button {
         order: 2;
         border-radius: 50%;
       }
+
+      @media screen and (max-width: 776px) {
+        flex-direction: column;
+      }
+    }
+
+    @media screen and (max-width: 1220px) {
+      gap: 70px;
+    }
+    @media screen and (max-width: 776px) {
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+  }
+
+  &__photo {
+    @media screen and (max-width: 991px) {
+      max-width: 354px;
     }
   }
 
   &__content {
     margin-right: auto;
+    @media screen and (max-width: 776px) {
+      margin-right: 0;
+    }
   }
 
   &__name {
@@ -2329,11 +2633,27 @@ button {
     font-weight: 700;
     font-size: 80px;
     line-height: 120px;
+
+    @media screen and (max-width: 1220px) {
+      font-size: 65px;
+      line-height: 84px;
+    }
+    @media screen and (max-width: 991px) {
+      font-size: 56px;
+    }
+    @media screen and (max-width: 776px) {
+      font-size: 36px;
+      line-height: 52px;
+    }
   }
 
   &__grup {
     margin-bottom: 30px;
     color: #000;
+
+    @media screen and (max-width: 776px) {
+      margin-bottom: 10px;
+    }
   }
 
   &__subtitle {
@@ -2341,6 +2661,19 @@ button {
     margin-bottom: 10px;
     font-size: 30px;
     line-height: 45px;
+
+    @media screen and (max-width: 1220px) {
+      font-size: 25px;
+      line-height: 38px;
+    }
+    @media screen and (max-width: 991px) {
+      font-size: 21px;
+      line-height: 32px;
+    }
+    @media screen and (max-width: 776px) {
+      font-size: 16px;
+      line-height: 24px;
+    }
   }
 
   &__adress {
@@ -2348,6 +2681,19 @@ button {
     font-weight: 300;
     font-size: 26px;
     line-height: 39px;
+
+    @media screen and (max-width: 1220px) {
+      font-size: 22px;
+      line-height: 29px;
+    }
+    @media screen and (max-width: 991px) {
+      font-size: 18px;
+      line-height: 27px;
+    }
+    @media screen and (max-width: 991px) {
+      font-size: 14px;
+      line-height: 21px;
+    }
   }
 
   &__phone,
@@ -2359,6 +2705,19 @@ button {
     line-height: 39px;
 
     text-decoration-line: underline;
+
+    @media screen and (max-width: 1220px) {
+      font-size: 22px;
+      line-height: 29px;
+    }
+    @media screen and (max-width: 991px) {
+      font-size: 18px;
+      line-height: 27px;
+    }
+    @media screen and (max-width: 991px) {
+      font-size: 14px;
+      line-height: 21px;
+    }
   }
 }
 
@@ -2367,11 +2726,21 @@ button {
   flex-direction: column;
   justify-content: center;
   min-height: 1046px;
-  padding-top: 100px;
-  padding-left: 100px;
+  padding: 100px 490px 0 100px;
   background: url("@img/contact-us-bg.png");
   background-repeat: no-repeat;
   background-position: right bottom;
+
+  @media screen and (max-width: 1220px) {
+    padding-left: 0;
+  }
+  @media screen and (max-width: 991px) {
+    align-items: center;
+    justify-content: flex-start;
+    min-height: auto;
+    padding: 70px 15px 0;
+    background: transparent;
+  }
 
   &__title {
     margin: 0;
@@ -2380,13 +2749,27 @@ button {
     font-weight: 700;
     font-size: 70px;
     line-height: 105px;
+
+    @media screen and (max-width: 991px) {
+      font-size: 55px;
+      line-height: 82px;
+    }
+    @media screen and (max-width: 776px) {
+      font-size: 40px;
+      line-height: 62px;
+    }
   }
 
   &__form {
     display: flex;
     flex-direction: column;
     gap: 26px;
+    width: 100%;
     max-width: 563px;
+    @media screen and (max-width: 991px) {
+      align-items: center;
+      max-width: 532px;
+    }
   }
 
   &__label {
@@ -2395,6 +2778,12 @@ button {
     color: #212121;
     font-size: 16px;
     line-height: 125.5%;
+
+    @media screen and (max-width: 991px) {
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+    }
   }
 
   &__input {
@@ -2404,6 +2793,10 @@ button {
     background: transparent;
     border: 1px solid #323232;
     border-radius: 4px;
+
+    @media screen and (max-width: 991px) {
+      max-width: 532px;
+    }
   }
 
   &__textarea {
@@ -2415,12 +2808,21 @@ button {
     border: 1px solid #323232;
     border-radius: 4px;
     resize: none;
+
+    @media screen and (max-width: 991px) {
+      max-width: 532px;
+    }
   }
 
   &__btn {
     align-self: flex-end;
     width: 100%;
     max-width: 340px;
+
+    @media screen and (max-width: 991px) {
+      align-self: center;
+      max-width: 532px;
+    }
   }
 }
 
@@ -2478,6 +2880,9 @@ button {
 
   &__content {
     position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
     z-index: 2;
     display: none;
     padding: 20px;
@@ -2564,6 +2969,10 @@ button {
     &:hover {
       opacity: 1;
     }
+  }
+
+  @media screen and (max-width: 991px) {
+    display: none;
   }
 }
 

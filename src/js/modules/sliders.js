@@ -14,8 +14,7 @@ export default function sliders() {
 			},
 		},
 	})
-
-	const indexOurClients = new Swiper('.our-clients__slider', {
+	const slider = new Swiper('.running-line', {
 		loop: true,
 		speed: 5000,
 		autoplay: {

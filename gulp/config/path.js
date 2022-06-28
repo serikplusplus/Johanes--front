@@ -9,6 +9,7 @@ export const path = {
 		css: `${buildFolder}/css/`,
 		html: `${buildFolder}`,
 		js: `${buildFolder}/js/`,
+		vuejs: `${buildFolder}/js/vue`,
 		images: `${buildFolder}/img/`,
 		fonts: `${buildFolder}/fonts/`,
 		files: `${buildFolder}/files/`, // куда переносить файлы с src.files
@@ -17,6 +18,7 @@ export const path = {
 		scss: `${srcFolder}/scss/style.scss`,
 		html: `${srcFolder}/*.html`,
 		js: `${srcFolder}/js/app.js`,
+		vuejs: `${srcFolder}/js/vue/**/*.js`,
 		images: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp}`,
 		svg: `${srcFolder}/img/**/*.svg`,
 		svgicons: `${srcFolder}/img/svgicons/*.svg`,

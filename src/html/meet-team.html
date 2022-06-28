@@ -1,116 +1,60 @@
-<section class="meet-team">
+<!-- <section class="meet-team">
 	<h2 class="meet-team__title">Meet our team</h2>
 
-	<div class="meet-team__wrapper">
+	<div
+		class="meet-team__wrapper"
+		:class="{'open':sliderIsOpen}"
+	>
 		<div class="meet-team__content">
 			<div class="meet-team__top">
-				<div class="meet-team__person meet-team__person--big">
-					<p class="meet-team__photo">
-						<img
-							src="@img/meet-team-1.png"
-							alt=""
-						/>
-					</p>
-
-					<p class="meet-team__name">Melissa Becker</p>
-					<p class="meet-team__position">Co-founder</p>
-				</div>
-				<div class="meet-team__person meet-team__person--big">
+				<div
+					class="meet-team__person meet-team__person--big"
+					v-for="(item, index) in getBigPerson"
+					@click="openSlider(item.personId)"
+				>
 					<p
-						class="meet-team__photo meet-team__photo--elips meet-team__photo--up"
+						class="meet-team__photo"
+						:class="{'meet-team__photo--elips meet-team__photo--up':item.personSubtitle==='CEO'}"
 					>
 						<img
-							src="@img/meet-team-2.png"
+							:src="'@img/'+item.personImageUrl"
 							alt=""
 						/>
 					</p>
 
-					<p class="meet-team__name">John Crimson</p>
-					<p class="meet-team__position">CEO</p>
-				</div>
-				<div class="meet-team__person meet-team__person--big">
-					<p class="meet-team__photo">
-						<img
-							src="@img/meet-team-3.png"
-							alt=""
-						/>
-					</p>
-
-					<p class="meet-team__name">Jack Billigan</p>
-					<p class="meet-team__position">Co-founder</p>
+					<p class="meet-team__name">{{item.personName}}</p>
+					<p class="meet-team__position">{{item.personSubtitle}}</p>
 				</div>
 			</div>
+
 			<div class="meet-team__bottom">
-				<div class="meet-team__person meet-team__person--small">
+				<div
+					class="meet-team__person meet-team__person--small"
+					v-for="(item, index) in getSmallPerson"
+					@click="openSlider(item.personId)"
+				>
 					<p class="meet-team__photo meet-team__photo--small">
 						<img
-							src="@img/meet-team-4.png"
+							:src="'@img/'+item.personImageUrl"
 							alt=""
 						/>
 					</p>
 
-					<p class="meet-team__name meet-team__name--small">Melissa Becker</p>
+					<p class="meet-team__name meet-team__name--small">
+						{{item.personName}}
+					</p>
 					<p class="meet-team__position meet-team__position--small">
-						Co-founder
-					</p>
-				</div>
-				<div class="meet-team__person meet-team__person--small">
-					<p class="meet-team__photo meet-team__photo--small">
-						<img
-							src="@img/meet-team-5.png"
-							alt=""
-						/>
-					</p>
-
-					<p class="meet-team__name meet-team__name--small">Melissa Becker</p>
-					<p class="meet-team__position meet-team__position--small">
-						Co-founder
-					</p>
-				</div>
-				<div class="meet-team__person meet-team__person--small">
-					<p class="meet-team__photo meet-team__photo--small">
-						<img
-							src="@img/meet-team-6.png"
-							alt=""
-						/>
-					</p>
-
-					<p class="meet-team__name meet-team__name--small">Melissa Becker</p>
-					<p class="meet-team__position meet-team__position--small">
-						Co-founder
-					</p>
-				</div>
-				<div class="meet-team__person meet-team__person--small">
-					<p class="meet-team__photo meet-team__photo--small">
-						<img
-							src="@img/meet-team-7.png"
-							alt=""
-						/>
-					</p>
-
-					<p class="meet-team__name meet-team__name--small">Melissa Becker</p>
-					<p class="meet-team__position meet-team__position--small">
-						Co-founder
-					</p>
-				</div>
-				<div class="meet-team__person meet-team__person--small">
-					<p class="meet-team__photo meet-team__photo--small">
-						<img
-							src="@img/meet-team-8.png"
-							alt=""
-						/>
-					</p>
-
-					<p class="meet-team__name meet-team__name--small">Melissa Becker</p>
-					<p class="meet-team__position meet-team__position--small">
-						Co-founder
+						{{item.personSubtitle}}
 					</p>
 				</div>
 			</div>
 		</div>
 
-		<div class="swiper meet-team__slider">
-			<button class="meet-team__close-btn">
+		<div class="meet-team__slider">
+			<button
+				class="meet-team__close-btn"
+				@click="closeSlider()"
+			>
 				<svg
 					width="154"
 					height="24"
@@ -124,190 +68,50 @@
 					/>
 				</svg>
 			</button>
-			<div class="swiper-wrapper">
-				<div class="swiper-slide meet-team__slide">
-					<div class="meet-team__slide-left">
-						<p class="meet-team__slide-photo">
-							<img
-								src="@img/meet-team-1.png"
-								alt=""
-							/>
-						</p>
+			<div class="meet-team__slide">
+				<a
+					:href="getCurrenPerson.personMoreInfo.link"
+					class="meet-team__slide-left"
+				>
+					<p
+						class="meet-team__slide-photo"
+						:class="{'meet-team__slide-photo--elips':getCurrenPerson.personSubtitle==='CEO'}"
+					>
+						<img
+							:src="'@img/'+getCurrenPerson.personMoreInfo.bigImageUrl"
+							alt=""
+						/>
+					</p>
 
-						<p class="meet-team__slide-name">Melissa Becker</p>
-						<p class="meet-team__slide-position">Co-founder</p>
-					</div>
-					<div class="meet-team__slide-right">
-						<p class="reviews__text">
-							This company
-							<span class="reviews__text--red"
-								>is the best i’ve ever cooperate with!</span
-							>
-							This company is the best i’ve ever cooperate with! This company is
-							the best i’ve ever cooperate with! This company is the best i’ve
-							ever cooperate with!
-						</p>
-					</div>
-				</div>
-				<div class="swiper-slide meet-team__slide">
-					<div class="meet-team__slide-left">
-						<p class="meet-team__slide-photo">
-							<img
-								src="@img/meet-team-2.png"
-								alt=""
-							/>
-						</p>
-
-						<p class="meet-team__slide-name">John Crimson</p>
-						<p class="meet-team__slide-position">Ceo</p>
-					</div>
-					<div class="meet-team__slide-right">
-						<p class="reviews__text">
-							This company is the best i’ve ever cooperate with! This company is
-							the best i’ve ever cooperate with! This company is the best i’ve
-							ever cooperate with! This company is the best i’ve ever cooperate
-							with!
-						</p>
-					</div>
-				</div>
-				<div class="swiper-slide meet-team__slide">
-					<div class="meet-team__slide-left">
-						<p class="meet-team__slide-photo">
-							<img
-								src="@img/meet-team-3.png"
-								alt=""
-							/>
-						</p>
-
-						<p class="meet-team__slide-name">Jack Billiganr</p>
-						<p class="meet-team__slide-position">Co-founder</p>
-					</div>
-					<div class="meet-team__slide-right">
-						<p class="reviews__text">
-							This company is the best i’ve ever cooperate with! This company is
-							the best i’ve ever cooperate with! This company is the best i’ve
-							ever cooperate with! This company is the best i’ve ever cooperate
-							with!
-						</p>
-					</div>
-				</div>
-				<div class="swiper-slide meet-team__slide">
-					<div class="meet-team__slide-left">
-						<p class="meet-team__slide-photo">
-							<img
-								src="@img/meet-team-4.png"
-								alt=""
-							/>
-						</p>
-
-						<p class="meet-team__slide-name">Melissa Becker</p>
-						<p class="meet-team__slide-position">Co-founder</p>
-					</div>
-					<div class="meet-team__slide-right">
-						<p class="reviews__text">
-							This company is the best i’ve ever cooperate with! This company is
-							the best i’ve ever cooperate with! This company is the best i’ve
-							ever cooperate with! This company is the best i’ve ever cooperate
-							with!
-						</p>
-					</div>
-				</div>
-				<div class="swiper-slide meet-team__slide">
-					<div class="meet-team__slide-left">
-						<p class="meet-team__slide-photo">
-							<img
-								src="@img/meet-team-5.png"
-								alt=""
-							/>
-						</p>
-
-						<p class="meet-team__slide-name">Melissa Becker</p>
-						<p class="meet-team__slide-position">Co-founder</p>
-					</div>
-					<div class="meet-team__slide-right">
-						<p class="reviews__text">
-							This company is the best i’ve ever cooperate with! This company is
-							the best i’ve ever cooperate with! This company is the best i’ve
-							ever cooperate with! This company is the best i’ve ever cooperate
-							with!
-						</p>
-					</div>
-				</div>
-				<div class="swiper-slide meet-team__slide">
-					<div class="meet-team__slide-left">
-						<p class="meet-team__slide-photo">
-							<img
-								src="@img/meet-team-6.png"
-								alt=""
-							/>
-						</p>
-
-						<p class="meet-team__slide-name">Melissa Becker</p>
-						<p class="meet-team__slide-position">Co-founder</p>
-					</div>
-					<div class="meet-team__slide-right">
-						<p class="reviews__text">
-							This company is the best i’ve ever cooperate with! This company is
-							the best i’ve ever cooperate with! This company is the best i’ve
-							ever cooperate with! This company is the best i’ve ever cooperate
-							with!
-						</p>
-					</div>
-				</div>
-				<div class="swiper-slide meet-team__slide">
-					<div class="meet-team__slide-left">
-						<p class="meet-team__slide-photo">
-							<img
-								src="@img/meet-team-7.png"
-								alt=""
-							/>
-						</p>
-
-						<p class="meet-team__slide-name">Melissa Becker</p>
-						<p class="meet-team__slide-position">Co-founder</p>
-					</div>
-					<div class="meet-team__slide-right">
-						<p class="reviews__text">
-							This company is the best i’ve ever cooperate with! This company is
-							the best i’ve ever cooperate with! This company is the best i’ve
-							ever cooperate with! This company is the best i’ve ever cooperate
-							with!
-						</p>
-					</div>
-				</div>
-				<div class="swiper-slide meet-team__slide">
-					<div class="meet-team__slide-left">
-						<p class="meet-team__slide-photo">
-							<img
-								src="@img/meet-team-8.png"
-								alt=""
-							/>
-						</p>
-
-						<p class="meet-team__slide-name">Melissa Becker</p>
-						<p class="meet-team__slide-position">Co-founder</p>
-					</div>
-					<div class="meet-team__slide-right">
-						<p class="reviews__text">
-							This company is the best i’ve ever cooperate with! This company is
-							the best i’ve ever cooperate with! This company is the best i’ve
-							ever cooperate with! This company is the best i’ve ever cooperate
-							with!
-						</p>
-					</div>
+					<p class="meet-team__slide-name">{{getCurrenPerson.personName}}</p>
+					<p class="meet-team__slide-position">
+						{{getCurrenPerson.personSubtitle}}
+					</p>
+				</a>
+				<div class="meet-team__slide-right">
+					<p class="meet-team__text reviews__text">
+						<span class="reviews__text--red"
+							>is the best i’ve ever cooperate with!</span
+						>
+						{{getCurrenPerson.personMoreInfo.description}}
+					</p>
 				</div>
 			</div>
-			<div class="meet-team__next-slide">
+			<div
+				v-if="showNextBtn"
+				class="meet-team__next-slide"
+				@click="nextSlide()"
+			>
 				<p class="meet-team__photo">
 					<img
-						src="@img/meet-team-2.png"
+						:src="'@img/'+nextBtn.imgUrl"
 						alt=""
 					/>
 				</p>
 
-				<p class="meet-team__name">Melissa Becker</p>
-				<p class="meet-team__position">Co-founder</p>
+				<p class="meet-team__name">{{nextBtn.name}}</p>
+				<p class="meet-team__position">{{nextBtn.position}}</p>
 			</div>
 		</div>
 	</div>
-</section>
+</section> -->

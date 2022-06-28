@@ -4,8 +4,18 @@
 	"keywords":"", "nameSite":"", })
 	<body>
 		<div class="container container--big">
-			@@include('html/header.html')@@include('html/about-us-main-section.html')@@include('html/meet-team.html')
-			@@include('html/timeline.html')@@include('html/vision.html')@@include('html/stories.html')@@include('html/footer.html')
+			@@include('html/header.html')@@include('html/about-us-main-section.html')
+			<div id="app">
+				<template v-if="meetTeamIsLoad">
+					<meet-team :team="team"></meet-team>
+				</template>
+				<!-- <script
+        type="application/javascript"
+        src="js/modules/meetTeam.js"
+      ></script> -->
+			</div>
+			@@include('html/timeline.html') @@include('html/vision.html')
+			@@include('html/stories.html') @@include('html/footer.html')
 		</div>
 	</body>
 </html>
