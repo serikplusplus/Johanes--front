@@ -686,8 +686,8 @@ button {
 
 .main-section {
   position: relative;
-  min-height: 732px;
-  padding-top: 75px;
+  min-height: 832px;
+  padding-top: 175px;
   overflow: hidden;
   color: #fff;
   font-weight: 500;
@@ -698,6 +698,8 @@ button {
 }
 @media screen and (max-width: 991px) {
   .main-section {
+    display: flex;
+    align-items: center;
     min-height: 470px;
     background: url("../img/main-section-orange-bg-medium.png");
     background-repeat: no-repeat;
@@ -707,7 +709,7 @@ button {
 }
 @media screen and (max-width: 490px) {
   .main-section {
-    padding-top: 35px;
+    padding-top: 135px;
   }
 }
 .main-section--about-us, .main-section--methods {
@@ -897,13 +899,13 @@ button {
   color: #fff;
 }
 .main-section__slider {
-  max-width: 730px;
+  max-width: 750px;
   margin-right: 0;
   border-radius: 10px 10px 10px 400px;
 }
 @media screen and (max-width: 1335px) {
   .main-section__slider {
-    max-width: 600px;
+    max-width: 550px;
   }
 }
 @media screen and (max-width: 1210px) {
