@@ -17,6 +17,10 @@ body {
   background: $body-bg;
 }
 
+main {
+  overflow: hidden;
+}
+
 ul,
 li {
   margin: 0;
@@ -54,7 +58,8 @@ button {
 
   &--big {
     max-width: 1470px;
-    overflow: hidden;
+
+    // overflow-x: hidden;
     @media screen and (max-width: 991px) {
       padding: 0;
     }
@@ -77,7 +82,6 @@ button {
 
   &-lang {
     position: relative;
-    margin-left: 15px;
     padding-right: 17px;
     line-height: 0;
     cursor: pointer;
@@ -158,21 +162,25 @@ button {
 }
 
 .main-header {
-  position: fixed;
+  position: sticky;
   top: 0;
   z-index: 999;
-  width: 100%;
-  max-width: 1440px;
-  padding: 20px 83px 20px 100px;
-  background: #fff;
 
   &__wrapper {
     display: flex;
     align-items: center;
-  }
+    padding: 0 83px 0 100px;
+    background: #fff;
+    @media screen and (max-width: 1350px) {
+      padding: 0 40px;
+    }
 
-  @media screen and (max-width: 1230px) {
-    padding: 20px;
+    @media screen and (max-width: 1230px) {
+      padding: 0 20px;
+    }
+    @media screen and (max-width: 991px) {
+      padding: 20px;
+    }
   }
 }
 
@@ -200,7 +208,7 @@ button {
 
 .mega-menu {
   position: absolute;
-  top: 86px;
+  top: 100px;
   left: 0;
   z-index: 998;
   width: 100%;
@@ -208,7 +216,7 @@ button {
   max-height: 0;
   overflow: hidden;
   background: #fff;
-  border-top: 1px solid transparent;
+  border-top: 0 solid transparent;
   transition: all 0.5s linear;
 
   &__wrapper {
@@ -224,8 +232,19 @@ button {
   }
 
   &__grup {
+    display: flex;
+    flex-direction: column;
     @media screen and (max-width: 991px) {
       flex-basis: 300px;
+    }
+
+    &--right {
+      margin-right: 64px;
+      margin-left: auto;
+
+      @media screen and (max-width: 991px) {
+        margin-right: 0;
+      }
     }
   }
 
@@ -277,11 +296,33 @@ button {
         background-repeat: no-repeat;
       }
     }
+
+    &--about {
+      &::after {
+        background: url("@img/about-us.svg");
+        background-repeat: no-repeat;
+      }
+    }
+
+    &--magazine {
+      &::after {
+        background: url("@img/magazine.svg");
+        background-repeat: no-repeat;
+      }
+    }
+
+    &--lang {
+      &::after {
+        background: url("@img/lang.svg");
+        background-repeat: no-repeat;
+      }
+    }
   }
 
   &__grup-list {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     gap: 14px;
     padding-left: 60px;
     color: #a3a3a3;
@@ -291,20 +332,43 @@ button {
     &:hover {
       color: $secondary-color;
     }
+
+    &--all {
+      margin-top: auto;
+      color: #212121;
+
+      @media screen and (max-width: 991px) {
+        color: #fff;
+      }
+    }
+  }
+
+  &__btn {
+    @media screen and (max-width: 991px) {
+      text-align: center;
+      border: 1px solid #fff;
+    }
   }
 }
 
 .mobile-menu {
   top: 100px;
   left: -2000px;
+  width: 0;
   min-height: calc(100vh - 100px);
-  max-height: max-content;
-  padding: 80px 20px 20px;
+
+  overflow-y: scroll;
   text-align: right;
   background: #101f42;
 
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
   &.show {
     left: 0;
+    width: 100%;
+    padding: 80px 20px;
   }
 
   @media screen and (max-width: 490px) {
@@ -326,9 +390,9 @@ button {
   }
 
   &__elem {
-    padding: 20px 0;
+    padding: 38px 0;
 
-    &:hover .mega-menu {
+    &:hover a ~ .mega-menu {
       max-height: 100vh;
       border-top: 1px solid #f1f1f1;
     }
@@ -358,6 +422,17 @@ button {
   display: flex;
   align-items: center;
   margin-left: 50px;
+
+  &__btn {
+    @media screen and (max-width: 1110px) {
+      display: none;
+    }
+  }
+
+  &__lang {
+    position: relative;
+    margin-left: 15px;
+  }
 
   @media screen and (max-width: 1230px) {
     margin-left: 20px;
@@ -421,8 +496,8 @@ button {
 
 .main-section {
   position: relative;
-  min-height: 832px;
-  padding-top: 175px;
+  min-height: 732px;
+  padding-top: 75px;
   overflow: hidden;
   color: #fff;
   font-weight: 500;
@@ -442,7 +517,7 @@ button {
   }
 
   @media screen and (max-width: 490px) {
-    padding-top: 135px;
+    padding-top: 35px;
   }
 
   &--about-us,
@@ -515,6 +590,9 @@ button {
     &--contact,
     &--rates {
       justify-content: flex-end;
+    }
+    @media screen and (max-width: 1220px) {
+      padding-left: 40px;
     }
     @media screen and (max-width: 991px) {
       justify-content: center;
@@ -714,8 +792,9 @@ button {
 
 .lang-list {
   position: absolute;
-  top: 106px;
-  right: 81px;
+  top: 65px;
+  right: 0;
+  left: 0;
   z-index: 998;
   max-height: 0;
   padding: 0;
@@ -730,7 +809,7 @@ button {
   }
 
   &__item {
-    padding: 10px 15px;
+    padding: 10px;
 
     &:not(:last-child) {
       border-bottom: 1px solid rgb(204 204 204);
