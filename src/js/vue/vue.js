@@ -76,9 +76,3 @@ const app = new Vue({
 	computed: {},
 	methods: {},
 })
-const as = new Vue({
-	el: '#getquote',
-	data: {
-		label: 'ffffffff',
-	},
-})

@@ -4,12 +4,11 @@
 	"keywords":"", "nameSite":"", })
 	<body>
 		<div class="container container--big">
-			@@include('html/header.html')@@include('html/sub-page-main-section.html')
+			@@include('html/header.html')@@include('html/rates-main-section.html')
 			<div id="app">
-				@@include('html/info-sub-page.html')
-				<getquote></getquote>
-				<!-- <script src="js/vue/vue-components
-          /getquote.js"></script> -->
+				@@include('html/calculation.html')
+				@@include('html/benefits.html',{dopclass:"benefits--blue"})
+				@@include('html/translation-rates.html')
 			</div>
 			@@include('html/our-clients.html')@@include('html/footer.html')
 		</div>
