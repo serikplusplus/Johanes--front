@@ -6,7 +6,21 @@
 		<div class="container container--big">
 			@@include('html/header.html') @@include('html/big-main-section.html',{
 			"title":"All languages", "name":"all-languages" })
-			@@include('html/description-section.html')
+			<div class="description">
+				<div class="container">
+					<div class="description__wrapper">
+						<h2 class="description__title">
+							We translate daily into the languages below.
+						</h2>
+						<p class="description__text">
+							We provide more than 20,000 translations a year and therefore also
+							have experience (but not every day) with the less common
+							languages. If the desired language is not listed, you can contact
+							us so we can help you further.
+						</p>
+					</div>
+				</div>
+			</div>
 			@@include('html/information-cards-section.html')
 			@@include('html/our-clients.html') @@include('html/footer.html')
 		</div>
