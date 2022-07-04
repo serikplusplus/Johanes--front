@@ -558,7 +558,7 @@ button {
   top: 100px;
   left: -1000px;
   width: 0;
-  min-height: calc(100vh - 100px);
+  min-height: 100vh;
   overflow-y: scroll;
   text-align: right;
   background: #101f42;
@@ -569,12 +569,12 @@ button {
 .mobile-menu.show {
   left: 0;
   width: 100%;
-  padding: 80px 20px;
+  padding: 80px 20px 120px;
 }
 @media screen and (max-width: 490px) {
   .mobile-menu {
     top: 90px;
-    min-height: calc(100vh - 90px);
+    min-height: 100vh;
   }
 }
 
